@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<body>
+  <div style="text-align: center;">
+    <canvas id="obj1" width="180" height="120" ></canvas>
+    <canvas id="obj2" width="180" height="120" ></canvas>
+    <canvas id="obj3" width="180" height="120" ></canvas>
+    <canvas id="obj4" width="180" height="120" ></canvas>
+    <canvas id="obj5" width="180" height="120" ></canvas>
+    <canvas id="obj6" width="180" height="120" ></canvas>
+    <hr>
+    <marquee behavior="alternate" scrolldelay="1"><canvas id="obj7" width="180" height="110"></canvas></marquee>    
+  </div>  
+  
+<script>
+
+drawCradle("obj1");
+ drawCradle("obj2");
+ drawCradle("obj3");
+ drawCradle("obj4");
+ drawCradle("obj5");
+ drawCradle("obj6");
+ drawCradle("obj6");
+ drawCar("obj7");
+
+function drawCradle(id)
+{
+  // Get the canvas element and its context
+  const canvas = document.getElementById(id);
+  const ctx = canvas.getContext('2d');
+
+  // Define the trapezium dimensions (adjust these as needed)
+  const topWidth = 170;
+  const bottomWidth = 120;
+  const height = 70;
+  const arcRadius = 55; // Adjust the arc radius as needed
+
+  // Calculate trapezium vertices coordinates
+  const vertices = [
+    { x: canvas.width / 2 + topWidth / 2, y: canvas.height - height },
+    { x: canvas.width / 2 - topWidth / 2, y: canvas.height - height },
+    { x: canvas.width / 2 - bottomWidth / 2, y: canvas.height },
+    { x: canvas.width / 2 + bottomWidth / 2, y: canvas.height },
+  ];
+
+  // Draw the trapezium with an arc
+  ctx.beginPath();
+  ctx.moveTo(vertices[0].x, vertices[0].y);
+  ctx.lineTo(vertices[1].x, vertices[1].y);
+  ctx.lineTo(vertices[2].x, vertices[2].y);
+  ctx.lineTo(vertices[3].x, vertices[3].y);
+  ctx.closePath();
+
+  // Add an arc-shaped cut above the trapezium
+  ctx.arc(canvas.width / 2, vertices[2].y - height, arcRadius, 0, Math.PI);
+
+  // Set trapezium color (you can change it as you like)
+  ctx.fillStyle = 'gray';
+
+  // Fill the trapezium shape
+  ctx.fill();
+
+  // Add a blue circle inside the arc
+  const circleRadius = 45; // Adjust the blue circle radius as needed
+  const circleCenterX = canvas.width / 2;
+  const circleCenterY = vertices[2].y - height - arcRadius + 60;
+
+  ctx.beginPath();
+  ctx.arc(circleCenterX, circleCenterY, circleRadius, 0, 2 * Math.PI);
+  ctx.closePath();
+
+  // Set blue circle color
+  ctx.fillStyle = 'gray';
+
+  // Fill the blue circle shape
+  ctx.fill();
+
+  // Add a smaller circle inside the blue circle
+  const smallCircleRadius = 10; // Adjust the smaller circle radius as needed
+
+  ctx.beginPath();
+  ctx.arc(circleCenterX, circleCenterY, smallCircleRadius, 0, 2 * Math.PI);
+  ctx.closePath();
+
+  // Set smaller circle color
+  ctx.fillStyle = '#EAEAEA';
+
+  // Fill the smaller circle shape
+  ctx.fill();
+
+}
+
+function drawCar(id)
+{
+  // Get the canvas element and its context
+  const canvas = document.getElementById(id);
+  const ctx = canvas.getContext('2d');
+
+  // Define the trapezium dimensions (adjust these as needed)
+  const topWidth = 160;
+  const bottomWidth = 170;
+  const height = 70;
+  const arcRadius = 55; // Adjust the arc radius as needed
+
+  // Calculate trapezium vertices coordinates
+  const vertices = [
+    { x: canvas.width / 2 + topWidth / 2, y: canvas.height - height },
+    { x: canvas.width / 2 - topWidth / 2, y: canvas.height - height },
+    { x: canvas.width / 2 - bottomWidth / 2, y: canvas.height },
+    { x: canvas.width / 2 + bottomWidth / 2, y: canvas.height },
+  ];
+
+  // Draw the trapezium with an arc
+  ctx.beginPath();
+  ctx.moveTo(vertices[0].x, vertices[0].y);
+  ctx.lineTo(vertices[1].x, vertices[1].y);
+  ctx.lineTo(vertices[2].x, vertices[2].y);
+  ctx.lineTo(vertices[3].x, vertices[3].y);
+  ctx.closePath();
+
+  // Add an arc-shaped cut above the trapezium
+  ctx.arc(canvas.width / 2, vertices[2].y - height, arcRadius, 0, Math.PI);
+
+  // Set trapezium color (you can change it as you like)
+  ctx.fillStyle = 'gray';
+
+  // Fill the trapezium shape
+  ctx.fill();
+
+  // Add a blue circle inside the arc
+  const circleRadius = 45; // Adjust the blue circle radius as needed
+  const circleCenterX = canvas.width / 2;
+  const circleCenterY = vertices[2].y - height - arcRadius + 60;
+
+  ctx.beginPath();
+  ctx.arc(circleCenterX, circleCenterY, circleRadius, 0, 2 * Math.PI);
+  ctx.closePath();
+
+  // Set blue circle color
+  ctx.fillStyle = 'gray';
+
+  // Fill the blue circle shape
+  ctx.fill();
+
+  // Add a smaller circle inside the blue circle
+  const smallCircleRadius = 10; // Adjust the smaller circle radius as needed
+
+  ctx.beginPath();
+  ctx.arc(circleCenterX, circleCenterY, smallCircleRadius, 0, 2 * Math.PI);
+  ctx.closePath();
+
+  // Set smaller circle color
+  ctx.fillStyle = '#EAEAEA';
+
+  // Fill the smaller circle shape
+  ctx.fill();
+
+}
+
+</script>
+</body>
+</html>
