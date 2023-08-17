@@ -3,7 +3,7 @@
   // SCENE, CAMERA, RENDERER
   //-------- ----------
 
-  const ww = 800;
+  const ww = window.innerWidth;
   const hh = 550;
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0xffffff);
