@@ -122,12 +122,12 @@ body{
 }
 @media (min-width: 800px){
   #demo{
-    width:800px;
+    width:100%;
     height:550px;
     border: solid 1px #eaeaea !important;
   }
   #demo > canvas {
-    width:800px;
+    width:100%;
     height:550px;
   }
 }
